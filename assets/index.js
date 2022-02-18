@@ -52,7 +52,7 @@ ReactDOM.render(reactWrapperElement, document.getElementById('root')); */
 ReactDOM.render([reactElement, articleElement], document.getElementById('root')) */
 
 
-class Counter extends React.Component {
+/* class Counter extends React.Component {
     constructor (props, ) { 
         super (props);
         this.state = {
@@ -72,6 +72,10 @@ class Counter extends React.Component {
         })
     }
     }
+
+    greeting = () => {
+        console.log('Hello to you!');
+    }
     render() {
         console.log(this);
         const {counter} = this.state;
@@ -82,10 +86,40 @@ class Counter extends React.Component {
             onClick: this.increment
         }, '+'),
         React.createElement('button',  {
-            onClick: this.decrement
+            onClick: this.decrement,
+            onMouseOver: this.greeting
         }, '-')
         )
     }
 }
 const reactCounterElement = React.createElement(Counter, {});
-ReactDOM.render(reactCounterElement, document.getElementById('root'))
+ReactDOM.render(reactCounterElement, document.getElementById('root')) */
+
+class User extends React.Component {
+    constructor (props) {
+        super (props);
+        this.state = {
+            name: 'Name',
+            lastName: 'LastName'
+        }
+    }
+    changeName = () => {
+        this.setState({
+            
+            name: 'Anonym',
+            lastName: 'Anonymous'
+        })
+    }
+    render() {
+        const {name, lastName} = this.state;
+        return React.createElement(React.Fragment, null, 
+            React.createElement('h1', null, name),
+            React.createElement('h1', null, lastName),
+            React.createElement('button', {
+                onClick: this.changeName
+            }, "LogOut")
+        ,)
+    }
+}
+const reactElement = React.createElement(User, {});
+ReactDOM.render(reactElement, document.getElementById('root'))
