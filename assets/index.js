@@ -64,7 +64,11 @@ class Counter extends React.Component {
         console.log(this);
         const {counter} = this.state;
         console.log(counter);
-        return React.createElement('h1', null, counter)
+        return React.createElement(React.Fragment, null, 
+        React.createElement('h1', null, counter),
+        React.createElement('button', '+'),
+        React.createElement('button', '-')
+        )
     }
 }
 const reactCounterElement = React.createElement(Counter);
