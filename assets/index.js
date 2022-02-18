@@ -15,7 +15,7 @@ const articleElement = React.createElement('article', {title: 'article'}, 'This 
 ReactDOM.render(articleElement, WHERE);
  */
 
-class Heading extends React.Component {
+/* class Heading extends React.Component {
     render() {
         console.log(this.props);
         const {titleForHeading, classForHeading, children} = this.props;
@@ -36,7 +36,8 @@ const reactElement2 = React.createElement(Heading, {
 
 const reactWrapperElement = React.createElement('div' , null, reactElement, reactElement2);
 
-ReactDOM.render(reactWrapperElement, document.getElementById('root'));
+ReactDOM.render(reactWrapperElement, document.getElementById('root')); */
+
 /* ReactDOM.render([reactElement, reactElement2], document.getElementById('root')); */ // bad practise
 
 /* class Article extends React.Component{
@@ -49,3 +50,22 @@ ReactDOM.render(reactWrapperElement, document.getElementById('root'));
 } */
 /* const articleElement = React.createElement(Article);
 ReactDOM.render([reactElement, articleElement], document.getElementById('root')) */
+
+
+class Counter extends React.Component {
+    constructor (props, ) { 
+        super (props);
+        this.state = {
+            counter: 0
+        }
+    }
+
+    render() {
+        console.log(this);
+        const {counter} = this.state;
+        console.log(counter);
+        return React.createElement('h1', null, counter)
+    }
+}
+const reactCounterElement = React.createElement(Counter);
+ReactDOM.render(reactCounterElement, document.getElementById('root'))
